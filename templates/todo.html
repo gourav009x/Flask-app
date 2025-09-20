@@ -19,6 +19,8 @@
         <label>Item UUID:</label>
         <input type="text" id="itemUUID" required><br><br>
 
+        <label>Item Hash:</label>
+        <input type="text" id="itemHash" required><br><br>
 
         <button type="submit">Submit</button>
     </form>
@@ -31,13 +33,14 @@
             const itemDescription = document.getElementById('itemDescription').value;
             const itemId = document.getElementById('itemId').value;
             const itemUUID = document.getElementById('itemUUID').value;
-            
+            const itemHash = document.getElementById('itemHash').value;
+
 
 
             const response = await fetch('http://127.0.0.1:5000/submittodoitem', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ itemName, itemDescription, itemId, itemUUID })
+                body: JSON.stringify({ itemName, itemDescription, itemId, itemUUID, itemHash })
             });
 
             const data = await response.json();

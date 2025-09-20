@@ -13,6 +13,9 @@
         <label>Item Description:</label>
         <textarea id="itemDescription" required></textarea><br><br>
 
+        <label>Item ID:</label>
+        <input type="text" id="itemId" required><br><br>
+
         <button type="submit">Submit</button>
     </form>
 
@@ -22,11 +25,11 @@
             e.preventDefault();
             const itemName = document.getElementById('itemName').value;
             const itemDescription = document.getElementById('itemDescription').value;
-
+            const itemId = document.getElementById('itemId').value;
             const response = await fetch('http://127.0.0.1:5000/submittodoitem', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ itemName, itemDescription })
+                body: JSON.stringify({ itemName, itemDescription, itemId })
             });
 
             const data = await response.json();
